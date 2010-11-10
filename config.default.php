@@ -1,3 +1,4 @@
+<?php
 $tinyib['board'] = "b"; // Unique identifier for this board using only letters and numbers
 $tinyib['boarddescription'] = "TinyIB"; // Displayed in the logo area
 $tinyib['maxthreads'] = 100; // Set this to limit the number of threads allowed before discarding older threads.  0 to disable
@@ -13,3 +14,4 @@ $mysql_password = "";
 $mysql_database = "";
 $mysql_posts_table = $tinyib['board'] . "_posts";
 $mysql_bans_table = "bans";
+?>

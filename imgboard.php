@@ -113,7 +113,7 @@ if (isset($_POST["message"]) || isset($_POST["file"])) {
 		$modposttext = '';
 		$post['message'] = str_replace("\n", "<br>", colorQuote(cleanString(rtrim($_POST["message"]))));
 	}
-	if ($_POST['password'] != '') { $post['password'] = md5(md5($_POST['password'])); } else { $post['password'] = ''; }
+	if ($_POST['password'] != '') { $post['password'] = md5($_POST['password'] . $tinyib['tripseed']); } else { $post['password'] = ''; }
 	if (strtolower($post['email']) == "noko") {
 		$post['email'] = '';
 		$noko = true;
@@ -254,7 +254,7 @@ if (isset($_POST["message"]) || isset($_POST["file"])) {
 	if (isset($_POST['delete'])) {
 		$post = postByID($_POST['delete']);
 		if ($post) {
-			if ($post['password'] != '' && md5(md5($_POST['password'])) == $post['password']) {
+			if ($post['password'] != '' && md5($_POST['password'] . $tinyib['tripseed']) == $post['password']) {
 				deletePostByID($post['id']);
 				if ($post['parent'] == 0) { threadUpdated($post['id']); } else { threadUpdated($post['parent']); }
 				echo 'Post successfully deleted.';

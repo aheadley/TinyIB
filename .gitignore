@@ -1,0 +1,9 @@
+config.php
+thumb/*.jpg
+thumb/*.png
+thumb/*.gif
+src/*.jpg
+src/*.png
+src/*.gif
+res/*.html
+*.html

@@ -15,22 +15,7 @@ if (get_magic_quotes_gpc()) {
 if (get_magic_quotes_runtime()) { set_magic_quotes_runtime(0); }
 
 $tinyib = array();
-$tinyib['board'] = "b"; // Unique identifier for this board using only letters and numbers
-$tinyib['boarddescription'] = "TinyIB"; // Displayed in the logo area
-$tinyib['maxthreads'] = 100; // Set this to limit the number of threads allowed before discarding older threads.  0 to disable
-$tinyib['logo'] = ""; // Logo HTML
-$tinyib['tripseed'] = ""; // Text to use when generating secure tripcodes
-$tinyib['adminpassword'] = ""; // Text entered at the manage prompt to gain administrator access
-$tinyib['modpassword'] = ""; // Same as above, but only has access to delete posts. Blank ("") to disable
-$tinyib['databasemode'] = "flatfile"; // flatfile or mysql
-
-// mysql settings
-$mysql_host = "localhost";
-$mysql_username = "";
-$mysql_password = "";
-$mysql_database = "";
-$mysql_posts_table = $tinyib['board'] . "_posts";
-$mysql_bans_table = "bans";
+require 'config.php';
 
 function fancyDie($message) {
 	die('<span style="color: red;font-size: 1.5em;font-family: Helvetica;">' . $message . '</span>');

@@ -7,7 +7,8 @@ To install:
 - CD to the directory you wish to install TinyIB
 - Run the following command:
 --- git clone git://github.com/tj9991/TinyIB ./
-- Edit the configuration at the top of imgboard.php
+- Copy config.default.php to config.php
+- Edit config.php settings
 - CHMOD write permissions to the following directories:
 --- /
 --- src/

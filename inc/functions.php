@@ -7,7 +7,7 @@ function _transformQuoteLinks($matches) {
 }
 function transformQuoteLinks($string) {
     $pattern = '/^' . preg_quote('&gt;&gt;') . '(\d+)/';
-    preg_replace_callback($pattern, '_transformQuoteLinks', $string);
+    return preg_replace_callback($pattern, '_transformQuoteLinks', $string);
 }
 
 function cleanString($string) {

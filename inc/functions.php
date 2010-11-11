@@ -6,7 +6,7 @@ function _transformQuoteLinks($matches) {
     return sprintf($link_format, parentPostByID($matches[0]), $matches[0], $matches[0]);
 }
 function transformQuoteLinks($string) {
-    $pattern = '/^' . preg_quote('&gt;&gt;') . '(\d+)/';
+    $pattern = '/' . preg_quote('&gt;&gt;') . '(\d+)/';
     return preg_replace_callback($pattern, '_transformQuoteLinks', $string);
 }
 

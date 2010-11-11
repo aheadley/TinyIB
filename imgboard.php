@@ -111,7 +111,7 @@ if (isset($_POST["message"]) || isset($_POST["file"])) {
 		$post['message'] = $_POST["message"];
 	} else {
 		$modposttext = '';
-		$post['message'] = str_replace("\n", "<br>", colorQuote(cleanString(rtrim($_POST["message"]))));
+		$post['message'] = str_replace("\n", "<br>", transformQuoteLinks(colorQuote(cleanString(rtrim($_POST["message"])))));
 	}
 	if ($_POST['password'] != '') { $post['password'] = md5($_POST['password'] . $tinyib['tripseed']); } else { $post['password'] = ''; }
 	if (strtolower($post['email']) == "noko") {

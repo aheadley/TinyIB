@@ -67,6 +67,11 @@ function postByID($id) {
 	}
 }
 
+function parentPostByID($id) {
+    $row = mysql_fetch_row(mysql_query("SELECT parent FROM `" . $GLOBALS['mysql_posts_table'] . "` WHERE `id` = '" . mysql_real_escape_string($id) . "' LIMIT 1"));
+    return $row[0];
+}
+
 function threadExistsByID($id) {
 	return mysql_result(mysql_query("SELECT COUNT(*) FROM `" . $GLOBALS['mysql_posts_table'] . "` WHERE `id` = '" . mysql_real_escape_string($id) . "' AND `parent` = 0 LIMIT 1"), 0, 0) > 0;
 }

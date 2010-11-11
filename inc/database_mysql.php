@@ -68,8 +68,12 @@ function postByID($id) {
 }
 
 function parentPostByID($id) {
-    $row = mysql_fetch_row(mysql_query("SELECT parent FROM `" . $GLOBALS['mysql_posts_table'] . "` WHERE `id` = '" . mysql_real_escape_string($id) . "' LIMIT 1"));
-    return $row[0];
+    $row = mysql_fetch_row(mysql_query("SELECT id, parent FROM `" . $GLOBALS['mysql_posts_table'] . "` WHERE `id` = '" . mysql_real_escape_string($id) . "' LIMIT 1"));
+    if ($row[1] == 0) {
+        return $row[0];
+    } else {
+        return $row[1];
+    }
 }
 
 function threadExistsByID($id) {

@@ -3,7 +3,12 @@ if (!isset($tinyib)) { die(''); }
 
 function _transformQuoteLinks($matches) {
     $link_format = '<a href="res/%d.html#%d" class="quotelink">&gt;&gt;%d</a>';
-    return sprintf($link_format, parentPostByID($matches[0]), $matches[0], $matches[0]);
+    $id = intval($matches[1]);
+    if (postByID($id)) {
+        return sprintf($link_format, parentPostByID($id), $id, $id);
+    } else {
+        return $matches[0];
+    }
 }
 function transformQuoteLinks($string) {
     $pattern = '/' . preg_quote('&gt;&gt;') . '(\d+)/';

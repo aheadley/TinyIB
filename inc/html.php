@@ -32,6 +32,7 @@ EOF;
 }
 
 function buildPost($post, $isrespage) {
+    global $tinyib;
 	$return = "";
 	$threadid = ($post['parent'] == 0) ? $post['id'] : $post['parent'];
 	$postlink = ($isrespage) ? ($threadid . '.html#' . $post['id']) : ('res/' . $threadid . '.html#' . $post['id']);
@@ -48,10 +49,10 @@ function buildPost($post, $isrespage) {
 EOF;
 	} elseif ($post["file"] != "") {
 		$return .= <<<EOF
-<span class="filesize">File: <a href="src/${post["file"]}">${post["file"]}</a>&ndash;(${post["file_size_formatted"]}, ${post["image_width"]}x${post["image_height"]}, ${post["file_original"]})</span>
+<span class="filesize">File: <a href="${tinyib["cdnprefix"]}src/${post["file"]}">${post["file"]}</a>&ndash;(${post["file_size_formatted"]}, ${post["image_width"]}x${post["image_height"]}, ${post["file_original"]})</span>
 <br>
-<a target="_blank" href="src/${post["file"]}">
-<span id="thumb${post['id']}"><img src="thumb/${post["thumb"]}" alt="${post["id"]}" class="thumb" width="${post["thumb_width"]}" height="${post["thumb_height"]}"></span>
+<a target="_blank" href="${tinyib["cdnprefix"]}src/${post["file"]}">
+<span id="thumb${post['id']}"><img src="${tinyib["cdnprefix"]}thumb/${post["thumb"]}" alt="${post["id"]}" class="thumb" width="${post["thumb_width"]}" height="${post["thumb_height"]}"></span>
 </a>
 EOF;
 	}
@@ -77,10 +78,10 @@ EOF;
 	if ($post['parent'] != 0 && $post["file"] != "") {
 		$return .= <<<EOF
 <br>
-<span class="filesize"><a href="src/${post["file"]}">${post["file"]}</a>&ndash;(${post["file_size_formatted"]}, ${post["image_width"]}x${post["image_height"]}, ${post["file_original"]})</span>
+<span class="filesize"><a href="${tinyib["cdnprefix"]}src/${post["file"]}">${post["file"]}</a>&ndash;(${post["file_size_formatted"]}, ${post["image_width"]}x${post["image_height"]}, ${post["file_original"]})</span>
 <br>
-<a target="_blank" href="src/${post["file"]}">
-	<span id="thumb${post["id"]}"><img src="thumb/${post["thumb"]}" alt="${post["id"]}" class="thumb" width="${post["thumb_width"]}" height="${post["thumb_height"]}"></span>
+<a target="_blank" href="${tinyib["cdnprefix"]}src/${post["file"]}">
+	<span id="thumb${post["id"]}"><img src="${tinyib["cdnprefix"]}thumb/${post["thumb"]}" alt="${post["id"]}" class="thumb" width="${post["thumb_width"]}" height="${post["thumb_height"]}"></span>
 </a>
 EOF;
 	}

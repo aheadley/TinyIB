@@ -7,6 +7,7 @@ $tinyib['tripseed'] = ""; // Text to use when generating secure tripcodes
 $tinyib['adminpassword'] = ""; // Text entered at the manage prompt to gain administrator access
 $tinyib['modpassword'] = ""; // Same as above, but only has access to delete posts. Blank ("") to disable
 $tinyib['databasemode'] = "flatfile"; // flatfile or mysql
+$tinyib['cdnprefix'] = "";
 // mysql settings
 $mysql_host = "localhost";
 $mysql_username = "";

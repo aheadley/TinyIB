@@ -26,6 +26,7 @@ function pageFooter() {
 		<div class="footer">
 			- <a href="http://www.2chan.net" target="_top">futaba</a> + <a href="http://www.1chan.net" target="_top">futallaby</a> + <a href="http://tj9991.github.com/TinyIB/" target="_top">tinyib</a> -
 		</div>
+		</div>
 	</body>
 </html>
 EOF;
@@ -163,6 +164,7 @@ EOF;
 	
 	$body = <<<EOF
 	<body>
+	    <div class="wrapper">
 		<div class="adminbar">
 			[<a href="$managelink">Manage</a>]
 		</div>
